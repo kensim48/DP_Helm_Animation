@@ -1,0 +1,393 @@
+//We always have to include the library
+#include "LedControl.h"
+
+/*
+ Now we need a LedControl to work with.
+ ***** These pin numbers will probably not work with your hardware *****
+ pin 12 is connected to the DataIn 
+ pin 11 is connected to the CLK 
+ pin 10 is connected to LOAD 
+ ***** Please set the number of devices you have *****
+ But the maximum default of 8 MAX72XX wil also work.
+ */
+LedControl lc=LedControl(12,11,10,5);
+int S[41]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+int C[41]={0,-1,-2,-3,-4,-5,-6,-7,-8,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31,-32,-33,-34,-35,-36,-37,-
+8,-39,-40};
+int number=0;
+
+/* 
+ This time we have more than one device. 
+ But all of them have to be initialized 
+ individually.
+ */
+void setup() {
+  //we have already set the number of devices when we created the LedControl
+  int devices=lc.getDeviceCount();
+  //we have to init all devices in a loop
+  for(int address=0;address<devices;address++) {
+    /*The MAX72XX is in power-saving mode on startup*/
+    lc.shutdown(address,false);
+    /* Set the brightness to a medium values */
+    lc.setIntensity(address,8);
+    /* and clear the display */
+    lc.clearDisplay(address);
+    
+  }
+  Serial.begin(9600);
+}
+
+void H()
+{
+   //H
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+}
+
+void U()
+{
+  //U
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+}
+
+void M()
+{
+  //M
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+}
+
+void A()
+{//A
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],1);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],1);
+lc.setLed(S[number],2,C[number],1);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],1);
+lc.setLed(S[number],4,C[number],1);
+lc.setLed(S[number],5,C[number],1);
+lc.setLed(S[number],6,C[number],1);
+lc.setLed(S[number],7,C[number],1);
+number++;
+lc.setLed(S[number],0,C[number],0);
+lc.setLed(S[number],1,C[number],0);
+lc.setLed(S[number],2,C[number],0);
+lc.setLed(S[number],3,C[number],0);
+lc.setLed(S[number],4,C[number],0);
+lc.setLed(S[number],5,C[number],0);
+lc.setLed(S[number],6,C[number],0);
+lc.setLed(S[number],7,C[number],0);
+}
+void loop()
+{
+  number=0;
+  A();
+  M();
+  U();
+  H();
+  
+     number=0;
+    while (number<=31)
+    {
+      C[number]++;
+      if (C[number]>7)
+      {
+        C[number]=0;
+        S[number]++;
+      }
+      number++;
+    }
+  delay(50);
+}
